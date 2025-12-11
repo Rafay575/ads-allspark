@@ -1,6 +1,6 @@
 import Navbar2 from "@/components/Navbar2";
 import ServiceHero from "@/components/ServiceHero";
-import ThisIsYou from "@/components/ThisIsYou";
+
 import Topnav from "@/components/Topnav";
 import SalesEngineSection from "@/components/SalesEngineSection";
 import WhyChooseUsSection from "@/components/WhyChooseUs";
@@ -9,42 +9,51 @@ import CoreWebServices from "@/components/CoreWebServices";
 import MythVsReality from "@/components/MythVsReality";
 import ContactForm from "@/components/ContactForm";
 import FaqSection from "@/components/FaqSection";
+import ThisIsYou2 from "@/components/ThisISYou2";
+import Footer from "@/components/Footer";
+import Portfolio from "@/components/Portfolio";
+import CalendlyButton from "@/components/CalendlyEmbed";
 
 interface HeroData {
-    btnText: string;
-    btnText2: string;
-    btnText3: string;
-    title: string;
-    description: string;
-    formSubtitle: string;
-    formTitle: string;
+  btnText: string;
+  btnText2: string;
+  btnText3: string;
+  title: string;
+  description: string;
+  formSubtitle: string;
+  formTitle: string;
 }
 
 const serviceHero: HeroData = {
   btnText: "Get a Quote",
   btnText2: "Get a Quote",
   btnText3: "Get a Quote",
-  title: "Digital Marketing Services",
-  description: "Digital Marketing Services",
-  formSubtitle: "Digital Marketing Services",
-  formTitle: "Digital Marketing Services",
+  title: "Website Development Services",
+  description: "Website Development Services",
+  formSubtitle: "Talk To Us",
+  formTitle: "Website Development Services",
 }
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Topnav />
       <Navbar2 />
       <ServiceHero serviceHero={serviceHero} />
-      <ThisIsYou />
+      <Portfolio/>
+      <div className="hidden md:block">
+
+      <ThisIsYou2 />
+      </div>
       <CoreWebServices />
       <WhyChooseUsSection />
       <RoadmapSection />
+      {/* <MythVsReality /> */}
       <SalesEngineSection />
-      <MythVsReality />
       <ContactForm />
+       {/* <CalendlyButton /> */}
       <FaqSection />
-      
-    </div>
+      <Footer/>
+    </>
   );
 }

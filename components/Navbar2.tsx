@@ -35,25 +35,22 @@ export default function Navbar2() {
   return (
     <>
       <nav
-        className={`${
-          plusJakartaSans.className
-        } bg-white relative overflow-hidden flex items-center shadow-md transition-all duration-300 ${
-          isSticky
+        className={`${plusJakartaSans.className
+          } bg-white relative overflow-hidden flex items-center shadow-md transition-all duration-300 ${isSticky
             ? "sticky top-0 left-0  w-full z-50 shadow-lg"
             : " w-full z-50 shadow-lg sticky"
-        }`}
+          }`}
         style={{ zIndex: 100 }}
       >
         <div
-          className={`flex-1 flex py-3 items-center justify-around ${
-            isSticky ? "max-w-[100%]" : ""
-          }`}
+          className={`flex-1 flex py-3 items-center justify-around ${isSticky ? "max-w-[100%]" : ""
+            }`}
         >
           {/* Left: Logo */}
           <div className="flex items-center space-x-2">
             <Link href="/">
               <Image
-                src="/images/logo.png"
+                src="/logo.svg"
                 alt="All Spark Logo"
                 width={150}
                 height={150}
@@ -65,43 +62,52 @@ export default function Navbar2() {
           <ul className="hidden space-x-4 !list-none  items-center font-medium text-gray-700 lg:flex">
             <li>
               <Link
-                href="/"
+                href="/#hero"
                 className="text-gray-700 px-4 py-2 transition duration-500 rounded-full font-semibold hover:bg-[#384BFF] hover:text-white"
               >
                 Home
               </Link>
             </li>
+            
             <li>
               <Link
-                href="/about"
+                href="/#portfolio"
                 className="text-gray-700 px-4 py-2 transition duration-500 rounded-full font-semibold hover:bg-[#384BFF] hover:text-white"
               >
-                About Us
+                Portfolio
               </Link>
             </li>
-           <li>
-             <Link
-                href="/services"
+            <li>
+              <Link
+                href="/#services"
                 className="text-gray-700 px-4 py-2 transition duration-500 rounded-full font-semibold hover:bg-[#384BFF] hover:text-white"
               >
                 Services
               </Link>
             </li>
-
             <li>
               <Link
-                href="/contact"
+                href="/#why-choose-us"
                 className="text-gray-700 px-4 py-2 transition duration-500 rounded-full font-semibold hover:bg-[#384BFF] hover:text-white"
               >
-                Contact
+                Why Choose Us
               </Link>
             </li>
             <li>
               <Link
-                href="/blogs"
+                href="/#relaunch-roadmap"
                 className="text-gray-700 px-4 py-2 transition duration-500 rounded-full font-semibold hover:bg-[#384BFF] hover:text-white"
               >
-                Blogs
+                Relaunch Roadmap
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                href="/#faqs"
+                className="text-gray-700 px-4 py-2 transition duration-500 rounded-full font-semibold hover:bg-[#384BFF] hover:text-white"
+              >
+                FAQs
               </Link>
             </li>
           </ul>
@@ -130,7 +136,7 @@ export default function Navbar2() {
 
         {/* Right: Get a Quote button (Desktop Only) */}
         <div className="hidden lg:block group relative min-w-[15%] bg-[#384BFF] py-3 transition-transform duration-300 ease-out hover:scale-105 hover:bg-[#253AC7]">
-          <Link href="/contact">
+          <Link href="#contact">
             <div className="px-4 pl-14 py-2 font-medium text-white transition-colors duration-300">
               Get a Quote &rarr;
             </div>
@@ -179,7 +185,7 @@ export default function Navbar2() {
               <div className="mt-5 mx-auto text-center">
                 <Link href="/">
                   <Image
-                    src="/images/logo.svg"
+                    src="/logo.svg"
                     alt="All Spark Logo"
                     width={150}
                     height={150}
@@ -188,41 +194,46 @@ export default function Navbar2() {
               </div>
               <hr className="mt-3 " />
               <nav className="flex flex-col mx-5 mt-10 h-full">
-                <ul className="space-y-2 text-gray-900">
+                <ul className="space-y-2 text-gray-900 list-none">
                   <li className="border-b pb-3">
-                    <Link href="/" onClick={() => setIsSidebarOpen(false)}>
+                    <Link href="/#hero" onClick={() => setIsSidebarOpen(false)}>
                       Home
                     </Link>
                   </li>
                   <li className="border-b pb-3">
-                    <Link href="/about" onClick={() => setIsSidebarOpen(false)}>
-                      About Us
+                    <Link href="/#services" onClick={() => setIsSidebarOpen(false)}>
+                      Services
                     </Link>
                   </li>
 
                   {/* Services with smooth dropdown */}
                   <li className="border-b pb-3">
                     <Link
-                      href="/services"
+                      href="/#why-choose-us"
                       onClick={() => setIsSidebarOpen(false)}
                     >
-                      Services
+                      Why Choose Us
                     </Link>
 
-                   
+
                   </li>
 
+                  <li className="border-b pb-3">
+                    <Link href="/#relaunch-roadmap" onClick={() => setIsSidebarOpen(false)}>
+                      Relaunch Roadmap
+                    </Link>
+                  </li>
+                  <li className="border-b pb-3">
+                    <Link href="/#faqs" onClick={() => setIsSidebarOpen(false)}>
+                      Faqs
+                    </Link>
+                  </li>
                   <li className="border-b pb-3">
                     <Link
-                      href="/contact"
+                      href="/#contact"
                       onClick={() => setIsSidebarOpen(false)}
                     >
-                      Contact Us
-                    </Link>
-                  </li>
-                  <li className="border-b pb-3">
-                    <Link href="/blogs" onClick={() => setIsSidebarOpen(false)}>
-                      Blogs
+                      Contact
                     </Link>
                   </li>
                 </ul>

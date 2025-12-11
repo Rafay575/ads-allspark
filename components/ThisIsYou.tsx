@@ -38,18 +38,18 @@ export default function ThisIsYou({
   const right = pad(rightItems);
 
   return (
-    <section className="mx-auto max-w-7xl px-3 md:px-6 py-10">
-      <h2 className="my-8 text-center text-2xl md:text-3xl font-bold text-[#1b3cff]">
+    <section className="container px-3 md:px-6 py-10">
+      <h2 className="my-8 text-center heading md:text-3xl font-bold color">
         {title}
       </h2>
 
       {/* Outer blue card */}
-      <div className="relative rounded-3xl bg-[#1b3cff]   shadow-lg">
+      <div className="relative rounded-3xl bg   shadow-lg">
         {/* Double vertical divider, full height of inner area */}
-        <div className="pointer-events-none absolute  inset-y-3 md:-inset-y-4 left-1/2 -translate-x-1/2 z-10 flex">
-          <span className="h-[110%]  w-px bg-white" />
+        <div className="pointer-events-none absolute  inset-y-3 md:-inset-y-4 left-1/2 -translate-x-1/2 z-10 hidden md:flex">
+          <span className="h-[100%]  w-px bg-white" />
           <span className="w-4" />
-          <span className="h-[110%] w-px bg-white" />
+          <span className="h-[100%] w-px bg-white" />
         </div>
 
         {/* Two columns */}
@@ -59,26 +59,26 @@ export default function ThisIsYou({
             className="grid gap-3 list-none md:gap-4"
             style={{ gridTemplateRows: `repeat(${rows}, minmax(0, 1fr))` }}
           >
-          {left.map((text, i) => (
-  <li
-    key={`left-${i}`}
-    className={`h-full border-b border-white px-3 py-3 md:px-4 md:py-2
+            {left.map((text, i) => (
+              <li
+                key={`left-${i}`}
+                className={`h-full border-b border-white px-3 py-3 md:px-4 md:py-2
       ${i === 0 ? "pt-10" : ""} 
       ${i === left.length - 1 ? "pb-10" : ""}
     `}
-  >
-    {text ? (
-      <div className="flex h-full items-center gap-3">
-        <span className="inline-block rotate-[315deg]">
-          <ArrowDown className="transition-transform" />
-        </span>
-        <p className="leading-snug text-white text-sm md:text-[18px]">{text}</p>
-      </div>
-    ) : (
-      <div className="h-full" />
-    )}
-  </li>
-))}
+              >
+                {text ? (
+                  <div className="flex h-full items-center gap-3">
+                    <span className="inline-block rotate-[315deg]">
+                      <ArrowDown className="transition-transform" />
+                    </span>
+                    <p className="leading-snug text-white text-sm md:text-[18px]">{text}</p>
+                  </div>
+                ) : (
+                  <div className="h-full" />
+                )}
+              </li>
+            ))}
 
           </ul>
 
@@ -87,26 +87,26 @@ export default function ThisIsYou({
             className="grid gap-3 list-none md:gap-4"
             style={{ gridTemplateRows: `repeat(${rows}, minmax(0, 1fr))` }}
           >
-           {right.map((text, i) => (
-  <li
-    key={`right-${i}`}
-    className={`h-full border-b border-white px-3 py-3 md:px-4 md:py-3
+            {right.map((text, i) => (
+              <li
+                key={`right-${i}`}
+                className={`h-full border-b border-white px-3 py-3 md:px-4 md:py-3
       ${i === 0 ? "pt-10" : ""} 
       ${i === right.length - 1 ? "pb-10" : ""}
     `}
-  >
-    {text ? (
-      <div className="flex h-full items-center gap-3">
-        <span className="inline-block rotate-[315deg]">
-          <ArrowDown className="transition-transform" />
-        </span>
-        <p className="leading-snug text-white text-sm md:text-[18px]">{text}</p>
-      </div>
-    ) : (
-      <div className="h-full" />
-    )}
-  </li>
-))}
+              >
+                {text ? (
+                  <div className="flex h-full items-center gap-3">
+                    <span className="inline-block rotate-[315deg]">
+                      <ArrowDown className="transition-transform" />
+                    </span>
+                    <p className="leading-snug text-white text-sm md:text-[18px]">{text}</p>
+                  </div>
+                ) : (
+                  <div className="h-full" />
+                )}
+              </li>
+            ))}
 
           </ul>
         </div>

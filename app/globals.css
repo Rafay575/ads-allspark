@@ -236,10 +236,7 @@ ol {
   @apply text-[14px] md:text-[15px] lg:text-[16px];
 }
 
-/* Subheading (like h3/h4) */
-.subheading {
-  @apply text-[18px] md:text-[19px] lg:text-[21px];
-}
+
 
 /* Heading (like h1/h2) */
 .heading {
@@ -305,7 +302,7 @@ ol {
 
 /* Subheading (like h3/h4) */
 .subheading {
-  @apply text-[18px] md:text-[19px] lg:text-[21px];
+  @apply text-[18px] md:text-[19px] lg:text-[25px];
 }
 
 /* Heading (like h1/h2) */
@@ -318,20 +315,55 @@ ol {
 }
 
 .pad {
-  @apply py-[50px] lg:py-[80px];
+  @apply py-[20px] sm:py-[50px] lg:py-[80px];
 }
 .mar {
   @apply my-[50px] lg:my-[80px];
 }
-.bg {
-  @apply bg-[#384bff];
+:root {
+  --background: #ffffff;
+  --foreground: #222121;
+  --primary: #384bff;
+  --marquee: #777777;
+  --accordion:#f5f5f5;
+  --contact:#ebebeb;
+  --border:#dbdbdb;
+
 }
+.bg {
+  @apply bg-[var(--primary)]
+}
+
+.color {
+  @apply !text-[var(--primary)]
+}
+
+.hbg {
+  @apply hover:bg-[var(--primary)]
+}
+
+.hcolor {
+  @apply hover:text-[var(--primary)]
+}
+
+.bcolor {
+  @apply border-[var(--primary)]
+}
+.bgacc{
+  background-color: var(--accordion);
+}
+.bgcon{
+  background-color: var(--contact);
+}
+.border{
+  border-color: var(--border);
+}
+
+
 .bg2 {
   @apply bg-[#181965];
 }
-.color {
-  @apply text-[#384bff];
-}
+
 .bcolor {
   @apply border-[#384bff];
 }
@@ -347,4 +379,31 @@ input,
 textarea,
 select {
   @apply focus:outline-0;
+}
+
+/* Basic infinite spin */
+.spin {
+  animation: spin 2s linear infinite;
+}
+
+
+
+/* Keyframes */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Accessibility: stop animation if user prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .spin,
+  .spin-slow,
+  .spin-fast,
+  .spin-reverse {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+.pcontainer {
+  @apply w-[95%] md:w-[80%] xl:w-[60%] mx-auto
 }

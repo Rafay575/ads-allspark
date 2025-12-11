@@ -21,7 +21,7 @@ export default function FaqSection() {
     "img3": "faq3.png",
 
     "subtitle": "Frequently Asked Questions",
-    "title": "FAQ",
+    "title": "FAQs",
     "faqs": [
       {
         "question": "What services does your software house offer?",
@@ -62,8 +62,8 @@ const itemVariants: Variants = {
 
 
   return (
-    <section className="pad" id="faqs">
-      <div className="container pt-[3%] flex flex-col lg:flex-row items-center lg:justify-between gap-10 ">
+    <section className="pad w-[100vw] overflow-x-hidden" id="faqs">
+      <div className="container pt-[3%] flex flex-col lg:flex-row items-center lg:justify-between gap-5 lg:gap-10 ">
         {/* ───────── LEFT IMAGE SECTION ───────── */}
         <motion.div
           className="relative w-[90%] lg:w-[43%] mr-auto     "
@@ -93,6 +93,7 @@ const itemVariants: Variants = {
               className="!w-full "
               width={200}
               height={200}
+              unoptimized   
             />
           </div>
 
@@ -104,6 +105,7 @@ const itemVariants: Variants = {
             style={{ animationDuration: "4s" }}
             width={200}
             height={200}
+            unoptimized
           />
         </motion.div>
 
@@ -116,14 +118,14 @@ const itemVariants: Variants = {
           viewport={{ once: true }}
         >
           {/* FAQ Label */}
-          <div className="mb-2 flex items-center space-x-4 para font-semibold uppercase tracking-wide color mt-[40px] lg:mt-0 justify-center sm:justify-start text-center sm:text-start">
+          <div className="mb-2 flex items-center space-x-4 para font-semibold uppercase tracking-wide color mt-[40px] lg:mt-0 justify-start text-center sm:text-start">
             <Image src='/al.png' alt="arrow" width={200} height={200} className=" w-7" />
             <span className="font">{faq.title}</span>
             <Image src='/ar.png' alt="arrow" width={200} height={200} className="w-7" />
           </div>
 
           {/* Main Heading */}
-          <h2 className="heading font-bold !leading-relaxed text-gray-900 text-center sm:text-start">
+          <h2 className="heading font-bold !leading-relaxed text-gray-900 text-start">
             {faq.subtitle}
           </h2>
 
@@ -139,11 +141,11 @@ const itemVariants: Variants = {
               <motion.div key={index} variants={itemVariants}>
                 <Accordion type="single" collapsible>
                   <AccordionItem value={`item-${index}`} >
-                    <AccordionTrigger className="para font font-[500]">
+                    <AccordionTrigger className="para  font-[500]">
                       {item.question}
                     </AccordionTrigger>
 
-                    <AccordionContent className="para font">
+                    <AccordionContent className="para ">
                       {item.answer}
                     </AccordionContent>
                     <hr className=" border-gray-300" />
