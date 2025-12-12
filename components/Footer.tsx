@@ -71,7 +71,7 @@ export default function Footer() {
                 { name: "Portfolio", href: "/#portfolio" },
                 { name: "Services", href: "/#services" },
                 { name: "Why Choose Us", href: "/#why-choose-us" },
-                { name: "Relaunch Roadmap", href: "/#relaunch-roadmap" },
+               
                 { name: "Faqs", href: "/#faqs" },
                 { name: "Contact", href: "/#contact" },
               ].map((linkItem, index) => (

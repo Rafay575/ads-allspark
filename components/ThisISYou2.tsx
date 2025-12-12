@@ -135,7 +135,7 @@ export default function ThisIsYou() {
       <div className="container">
         {/* Header */}
         <div className="text-center mb-8 md:mb-12">
-          <h1 className="heading font-[700] color mb-4">This is You, Is not It?</h1>
+          <h1 className="heading font-[700] color mb-4">This is You, Isn't It?</h1>
           <p className="text-slate-600 para max-w-2xl mx-auto">
             Your journey to a better website starts here — where design meets performance, and every click turns
             visitors into loyal customers.

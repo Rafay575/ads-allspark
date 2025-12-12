@@ -306,9 +306,9 @@ export default function ServiceHero({ serviceHero }: ServiceHeroProps) {
   >
     <button
     type='button'
-      className="mt-6 sm:mt-0 inline-flex w-full bg-transparent items-center border-white border justify-center rounded-[25px] hover:border-0 px-5 py-0 h-12 para font-semibold text-white shadow-sm transition hover:bg-[#ff7a18] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#FF8C3A]"
+      className="mt-6 sm:mt-0 inline-flex w-full bg-transparent items-center border-white border justify-center rounded-[25px] hover:border-0 px-5 py-0 h-12 para font-semibold text-white shadow-sm transition hover:bg-[#ff7a18] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#F98600]"
     >
-      <span>Schedule a Meeting</span>
+      <span>Book a Free Session</span>
       <IoIosArrowForward className="ml-3 text-white" /> {/* Arrow icon */}
     </button>
   </Link>

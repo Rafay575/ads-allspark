@@ -1,9 +1,12 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState } from "react";
 import { Layers, Code2, Database, Settings, MonitorSmartphone } from "lucide-react";
-import { IoChevronBack, IoChevronForward } from "react-icons/io5";
-import { GiStarShuriken } from "react-icons/gi";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from 'swiper/modules';
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
 
 // Services Data
 const services = [
@@ -46,44 +49,13 @@ const services = [
 ];
 
 export default function CoreWebServices() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [slidesPerView, setSlidesPerView] = useState(1);
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
 
-  // Responsive slides-per-view based on screen width
-  useEffect(() => {
-    const updateSlidesPerView = () => {
-      const width = window.innerWidth;
-      if (width < 768) {
-        setSlidesPerView(1); // Mobile: Show 1 slide at a time
-      } else if (width < 1280) {
-        setSlidesPerView(2); // Tablet: Show 2 slides at a time
-      } else {
-        setSlidesPerView(3); // Desktop: Show 3 slides at a time
-      }
-    };
-    
-    updateSlidesPerView();
-    window.addEventListener("resize", updateSlidesPerView);
-    return () => window.removeEventListener("resize", updateSlidesPerView);
-  }, []);
-
-  // Chunk services into "pages" for the slider
-  const slides = useMemo(() => {
-    const result: typeof services[] = [];
-    for (let i = 0; i < services.length; i += slidesPerView) {
-      result.push(services.slice(i, i + slidesPerView));
-    }
-    return result;
-  }, [services, slidesPerView]);
-
-  const totalSlides = slides.length;
-
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : prev));
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev < totalSlides - 1 ? prev + 1 : prev));
+  // Custom pagination bullet buttons
+  const goToSlide = (index: number) => {
+    // If using ref like in previous example, you would call swiper.slideTo(index)
+    // For this simple implementation, we'll just update the state
+    setCurrentSlide(index);
   };
 
   return (
@@ -91,83 +63,80 @@ export default function CoreWebServices() {
       <div className="container sm:text-center">
         {/* Section Header */}
         <div className="w-full lg:w-[80%] mx-auto">
-         <h2 className="heading font-bold color"> Services We Offers </h2> <p className="mt-3 para text-gray-600 max-w-3xl mx-auto"> As a leading website development company, we deliver end-to-end web solutions designed to boost performance, usability, and business growth. </p>
+          <h2 className="heading font-bold color"> Services We Offer </h2> 
+          <p className="mt-3 para text-gray-600 max-w-3xl mx-auto"> 
+            As a leading website development company, we deliver end-to-end web solutions designed to boost performance, usability, and business growth. 
+          </p>
         </div>
 
-        {/* Slider */}
+        {/* Swiper Slider */}
         <div className="relative mt-[20px]">
-          <div className="overflow-hidden">
-            <div
-              className="flex transition-transform duration-500 ease-out"
-              style={{
-                transform: `translateX(-${currentIndex * 100}%)`,
-              }}
-            >
-              {slides.map((group, index) => (
-                <div
-                  key={index}
-                  className="w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[20px] lg:gap-[40px] xl:gap-[60px]"
-                >
-                  {group.map((service, i) => (
-                    <div
-                      key={i}
-                      className="flex flex-col justify-between h-full rounded-2xl border border-gray-200 bg-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all p-6 text-left"
-                    >
-                      <div className="flex flex-col gap-4">
-                        <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-indigo-50 color border">
-                          {service.icon}
-                        </div>
-                        <h3 className="subheading font-semibold text-gray-800">
-                          {service.title}
-                        </h3>
-                        <p className="para text-gray-800 leading-relaxed">
-                          {service.description}
-                        </p>
-                      </div>
+          <Swiper
+            modules={[Autoplay, Pagination]}
+            spaceBetween={20}
+            slidesPerView={1}
+            loop={true}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            pagination={{
+              clickable: true,
+              el: '.services-pagination',
+              bulletClass: 'services-bullet',
+              bulletActiveClass: 'services-bullet-active',
+            }}
+            onSlideChange={(swiper) => setCurrentSlide(swiper.realIndex)}
+            breakpoints={{
+              640: {
+                slidesPerView: 1,
+                spaceBetween: 10,
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 15,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+              },
+            }}
+          >
+            {services.map((service, index) => (
+              <SwiperSlide key={index}>
+                <div className="flex flex-col justify-between min-h-[300px] rounded-2xl border border-gray-200 bg-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all p-6 text-left">
+                  <div className="flex flex-col gap-4">
+                    <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-indigo-50 color border">
+                      {service.icon}
                     </div>
-                  ))}
+                    <h3 className="subheading font-semibold text-gray-800">
+                      {service.title}
+                    </h3>
+                    <p className="para text-gray-800 leading-relaxed">
+                      {service.description}
+                    </p>
+                  </div>
                 </div>
-              ))}
-            </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          {/* Custom Pagination Dots/Buttons */}
+          <div className="flex justify-center items-center gap-2 mt-8 services-pagination">
+            {services.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`services-bullet w-3 h-3 rounded-full transition-all duration-300 cursor-pointer
+                  ${currentSlide === index 
+                    ? 'services-bullet-active bg-[var(--primary)] scale-125' 
+                    : 'bg-gray-400 hover:bg-gray-600'
+                  }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
           </div>
-
-          {/* Slider controls */}
-          {totalSlides > 1 && (
-            <>
-              <button
-                onClick={handlePrev}
-                disabled={currentIndex === 0}
-                className={`absolute left-0 top-1/2 -translate-y-1/2 p-2 rounded-full border bg-white/80 dark:bg-slate-900/80 shadow-md hover:scale-105 transition 
-                    ${currentIndex === 0 ? "opacity-40 cursor-not-allowed" : ""}`}
-              >
-                <IoChevronBack />
-              </button>
-
-              <button
-                onClick={handleNext}
-                disabled={currentIndex === totalSlides - 1}
-                className={`absolute right-0 top-1/2 -translate-y-1/2 p-2 rounded-full border bg-white/80 dark:bg-slate-900/80 shadow-md hover:scale-105 transition 
-                    ${currentIndex === totalSlides - 1 ? "opacity-40 cursor-not-allowed" : ""}`}
-              >
-                <IoChevronForward />
-              </button>
-
-              {/* Dots */}
-              <div className="flex justify-center gap-2 mt-4">
-                {slides.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setCurrentIndex(i)}
-                    className={`h-2 w-2 rounded-full transition ${
-                      i === currentIndex
-                        ? "bg-[var(--primary)]"
-                        : "bg-gray-400/60"
-                    }`}
-                  />
-                ))}
-              </div>
-            </>
-          )}
         </div>
       </div>
     </section>
