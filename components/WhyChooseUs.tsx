@@ -5,7 +5,7 @@ export default function WhyChooseUsSection() {
   return (
     <>
    
-      <div className="container  pad" id="why-choose-us">
+      <div className="container pad" id="why-choose-us">
         <p className="heading  sm:text-center sm:w-[80%] xl:w-[60%] mx-auto color font-[700]">Why Choose Allspark Technologies?</p>
         <p className="para sm:text-center sm:w-[80%] xl:w-[60%] mx-auto">Trusted by businesses worldwide, we blend creativity and technology to craft digital experiences that drive growth, performance, and success.</p>
         <div className="flex flex-col lg:grid grid-cols-1 lg:grid-cols-3 gap-[20px] mt-[30px]">

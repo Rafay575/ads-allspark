@@ -36,7 +36,7 @@ const serviceHero: HeroData = {
 
 export default function Home() {
   return (
-    <>
+    <div className=" overflow-x-hidden  ">
       <Topnav />
       <Navbar2 />
       <ServiceHero serviceHero={serviceHero} />
@@ -54,6 +54,6 @@ export default function Home() {
        {/* <CalendlyButton /> */}
       <FaqSection />
       <Footer/>
-    </>
+    </div>
   );
 }
