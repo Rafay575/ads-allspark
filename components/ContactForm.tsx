@@ -228,7 +228,7 @@ export default function ContactForm() {
               <div className="w-full mb-[20px]">
                 <label>Your Budget*</label>
                 <div className="flex flex-wrap gap-x-[15px] xl:gap-x-[35px] mt-[15px] text-white">
-                  {["$1K-$2K", "$2K-$3K", "$3K-$5K", "$5K-$7K", "$7K-$10K", "$10K+"].map((range) => (
+                  {["less than 1k", "$1K-$3K", "$3K-$5K", "$5K-$7K", "$7K-$10K", "$10K+"].map((range) => (
                     <label key={range} className="flex items-center gap-2 cursor-pointer">
                       <input
                         type="radio"
@@ -262,22 +262,7 @@ export default function ContactForm() {
               </div>
 
               {/* Industry */}
-              <div className="w-full">
-                <label>What Industry are You in?*</label>
-                <select
-                  value={industry}
-                  onChange={(e) => setIndustry(e.target.value)}
-                  className="my-[10px] xl:my-[15px] text-white w-full border bg-transparent py-[10px] px-[10px]"
-                >
-                  <option value="" className="bg2">Please Select</option>
-                  <option value="Healthcare" className="bg2">Healthcare</option>
-                  <option value="Education" className="bg2">Education</option>
-                  <option value="Finance" className="bg2">Finance</option>
-                  <option value="Technology" className="bg2">Technology</option>
-                  <option value="Other" className="bg2">Other</option>
-                </select>
-                {errors.industry && <p className="text-xs text-red-400 mt-[-5px]">{errors.industry}</p>}
-              </div>
+           
 
               {/* Message */}
               <div className="w-full">
