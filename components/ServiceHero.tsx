@@ -212,7 +212,7 @@ export default function ServiceHero({ serviceHero }: ServiceHeroProps) {
             <Image src={arrowright} className='w-[35px]' alt='icon' />
           </div>
 
-          <p className='heading font-[700] sm:my-[10px] text-start w-full'>{serviceHero.formTitle}</p>
+          <p className='heading font-[700] sm:my-[10px] text-sm text-start w-full'>Website Design and Development Services</p>
 
           <form onSubmit={handleSubmit} className='w-full'>
             <div className='w-full flex flex-col items-center sm:items-start gap-[10px] relative z-[20]'>
