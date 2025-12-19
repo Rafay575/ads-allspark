@@ -12,71 +12,64 @@ import "swiper/css/pagination";
 export default function TestimonialsSection() {
   const [active, setActive] = useState(0);
 
-  const testimonials = [
-    {
-      id: 1,
-      name: "Jonathan Carter",
-      role: "Startup Founder",
-      text:
-        "AllSpark transformed our business with its AI-powered solutions. Their team built a scalable, efficient system that automated our operations. Highly recommend!",
-      image: "/images/testimonials/avatar.png",
-      rating: 5,
-    },
-    {
-      id: 2,
-      name: "David Thompson",
-      role: "CTO, FinTech Company",
-      text:
-        "Their cloud-based software development helped us migrate to a high-performance, secure setup. Exceptional technical expertise!",
-      image: "/images/testimonials/avatar.png",
-      rating: 5,
-    },
-    {
-      id: 3,
-      name: "Emily Roberts",
-      role: "AI Researcher",
-      text:
-        "The AI automation tools AllSpark delivered saved our team countless hours. Their machine learning knowledge is unmatched.",
-      image: "/images/testimonials/avatar-2.png",
-      rating: 5,
-    },
-    {
-      id: 4,
-      name: "Michael Lee",
-      role: "SaaS Product Manager",
-      text:
-        "Seamless collaboration with AllSpark. Their innovative development improved our app’s performance and security.",
-      image: "/images/testimonials/avatar.png",
-      rating: 5,
-    },
-    {
-      id: 5,
-      name: "Rachel Green ",
-      role: "Healthcare IT Specialist",
-      text:
-        "AllSpark developed a secure telehealth platform with complex integrations. Their enterprise software development firm experience really stood out.",
-      image: "/images/testimonials/avatar-2.png",
-      rating: 5,
-    },
-    {
-      id: 6,
-      name: "James Wilson",
-      role: "Logistics Operations Manager",
-      text:
-        "The custom ERP they built streamlined our supply chain. Fast delivery and excellent responsiveness from a skilled software development agency.",
-      image: "/images/testimonials/avatar.png",
-      rating: 5,
-    },
-    {
-      id: 7,
-      name: "Natalie Cooper",
-      role: "Digital Marketing Consultant",
-      text:
-        "Their automation features supercharged our ad campaigns. Truly a tech-enabled software development company worth partnering with.",
-      image: "/images/testimonials/avatar-2.png",
-      rating: 5,
-    },
-  ];
+ const testimonials = [
+ 
+  {
+    id: 8,
+    name: "Michael Anderson",
+    role: "Business Owner",
+    text:
+      "All Spark Technologies delivered a custom website development solution that perfectly matched our business goals. The design feels modern, loads fast, and clearly builds trust with visitors. Their team understood our vision and executed it flawlessly. Highly recommended.",
+    image: "/images/testimonials/avatar.png",
+    rating: 5,
+  },
+  {
+    id: 9,
+    name: "Sarah Mitchell",
+    role: "Ecommerce Brand Manager",
+    text:
+      "We hired All Spark Technologies for ecommerce website development and the results exceeded expectations. From smooth checkout flow to mobile responsiveness, everything works seamlessly. Our conversion rate improved noticeably after launch.",
+    image: "/images/testimonials/avatar.png",
+    rating: 5,
+  },
+  {
+    id: 10,
+    name: "Daniel Roberts",
+    role: "Marketing Director",
+    text:
+      "Their website design and development services helped us rebrand with confidence. The layout is clean, user friendly, and optimized for search engines. Communication was clear throughout the project and delivery was on time.",
+    image: "/images/testimonials/avatar.png",
+    rating: 5,
+  },
+  {
+    id: 11,
+    name: "Emily Watson",
+    role: "Product Manager",
+    text:
+      "All Spark Technologies built a powerful web app tailored to our internal operations. The web app design and development process was well structured, secure, and scalable. Their technical expertise really stands out.",
+    image: "/images/testimonials/avatar.png",
+    rating: 5,
+  },
+  {
+    id: 12,
+    name: "James Carter",
+    role: "Startup Founder",
+    text:
+      "We needed a custom website that could grow with our business, and All Spark Technologies delivered exactly that. The site is fast, SEO optimized, and easy to manage. Their attention to detail made a big difference.",
+    image: "/images/testimonials/avatar.png",
+    rating: 5,
+  },
+  {
+    id: 13,
+    name: "Olivia Hernandez",
+    role: "Operations Lead",
+    text:
+      "From ecommerce functionality to overall website performance, everything was handled professionally. Their website design and development approach focuses on real user experience, not just visuals. A reliable partner for long term growth.",
+    image: "/images/testimonials/avatar.png",
+    rating: 5,
+  },
+];
+
 
   return (
     <section className="bg-gray-100 py-24">
@@ -110,7 +103,7 @@ export default function TestimonialsSection() {
           {testimonials.map((t, idx) => (
             <SwiperSlide key={t.id}>
               <div
-                className={`flex h-[250px] flex-col justify-between rounded-xl p-4 shadow-lg transition-colors duration-300 ${
+                className={`flex min-h-[300px] flex-col justify-between rounded-xl p-4 shadow-lg transition-colors duration-300 ${
                   active === idx
                     ? "bg-blue-600 text-white"
                     : "bg-white text-gray-900"
