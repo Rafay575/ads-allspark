@@ -1,1 +1,0 @@
-export const baseURL = "https://vercel.libererllc.com";
