@@ -99,7 +99,7 @@ export default function ContactForm() {
 
     // ✅ Node backend URL
     const API_URL =
-      process.env.NEXT_PUBLIC_API_URL?.trim() || "http://localhost:5001";
+      process.env.NEXT_PUBLIC_API_URL?.trim() || "https://test.libererllc.com";
 
     try {
       const res = await fetch(`${API_URL}/api/contact/form`, {
