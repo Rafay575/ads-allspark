@@ -136,7 +136,7 @@ const [rootEl, setRootEl] = useState<HTMLElement | null>(null);
 
     // ✅ CHANGE THIS LINE: Point to your Node.js backend
     // Use environment variable or hardcode the URL
-    const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5001";
+    const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://test.libererllc.com";
     console.log("API endpoint:", `${API_URL}/api/contact/submit`);
 
     try {
